@@ -11,7 +11,10 @@ ii.	Private subnet.
 INTERNET GATEWAY allow communication among all resources within the VPC and internet.
 2. Private Subnet (Web/App subnet and Data subnet)
 Web server is installed in the private subnet to prevent a direct access from outside world and this provides a form of security.
+
 ELASTIC Cache cluster caches queried requests by users and speed up responses.  Amazon RDS is use as the WordPress database. Since this is a multi-server architecture all datafile that feeds to the WordPress server is shared on amazon EFS file system using EFS mount target.
- Amazon CloudFront:  A WEB Service that provide cost effective way to distribute web contents with low latency. Cache contents are downloaded close to end users for faster delivery. CloudFront pulls static contents from S3 bucket. it uses cache control headers to identify how long cache of http and https are cached for. Dynamic contents are accessed via Application Load Balancer
+
+Amazon CloudFront:  A WEB Service that provide cost effective way to distribute web contents with low latency. Cache contents are downloaded close to end users for faster delivery. CloudFront pulls static contents from S3 bucket. it uses cache control headers to identify how long cache of http and https are cached for. Dynamic contents are accessed via Application Load Balancer
+
 Database Caching: - Database caching can reduce latency and increase throughput for heavy application workloads.  Application performance is improved by storing frequently accessed pieces of data in memory for low-latency access 
 Jenkins Server is installed on AWS Ec2 and it will pull the terraform code from GitHub. This will deploy the whole infrastructure on AWS, and it will be monitored by Prometheus and Grafana use to Visualise the Captured Metrics by Prometheus.
